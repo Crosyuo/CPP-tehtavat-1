@@ -1,0 +1,3 @@
+﻿  main.cpp
+E:\CPP-tehtavat-1\C++ tehtävät 4\C++ tehtävät 3\main.cpp(50,35): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  C++ tehtävät 3.vcxproj -> E:\CPP-tehtavat-1\C++ tehtävät 4\x64\Debug\C++ tehtävät 3.exe
