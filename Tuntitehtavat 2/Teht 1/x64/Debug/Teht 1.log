@@ -1,0 +1,2 @@
+﻿  main.cpp
+C:\Users\crist\Documents\GitHub\CPP-tehtavat-1\Tuntitehtavat 2\Teht 1\main.cpp(12,5): error C2628: 'Hissi' followed by 'void' is illegal (did you forget a ';'?)
