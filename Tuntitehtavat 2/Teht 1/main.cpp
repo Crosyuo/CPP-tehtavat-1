@@ -8,12 +8,7 @@ private:
     int _kerros;
 
 public:
-    Hissi
-    void luo_hissi(int alin, int ylin) {
-        _alin = alin;
-        _ylin = ylin;
-        _kerros = alin;
-    }
+    Hissi(int alin, int ylin) : _alin(alin), _ylin(ylin), _kerros(alin) {}
 
     void kerros_alas() {
         if (_kerros > _alin) {
@@ -52,8 +47,7 @@ public:
 };
 
 int main() {
-    Hissi h;
-    h.luo_hissi(1, 5);
+    Hissi h(1, 5);
 
     h.siirry_kerrokseen(4);
     h.siirry_kerrokseen(1);

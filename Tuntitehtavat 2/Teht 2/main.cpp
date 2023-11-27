@@ -8,11 +8,7 @@ private:
     int _kerros;
 
 public:
-    void luo_hissi(int alin, int ylin) {
-        _alin = alin;
-        _ylin = ylin;
-        _kerros = alin;
-    }
+    Hissi(int alin, int ylin) : _alin(alin), _ylin(ylin), _kerros(alin) {}
 
     void kerros_alas() {
         if (_kerros > _alin) {
@@ -51,42 +47,40 @@ public:
 };
 
 class Talo {
-public:
+private:
+    int _alin;
+    int _ylin;
+    int _lkm;
     std::vector<Hissi> _hissit;
-    Talo(int alin, int ylin, int lkm) {
-        int _alin = alin;
-        int _ylin = ylin;
-        int _lkm = lkm;
 
-        for (int i = 0; i < _lkm; i++) {
-            Hissi y;
-            _hissit.push_back(y);
+public:
+    Talo(int alin, int ylin, int lkm) : _alin(alin), _ylin(ylin), _lkm(lkm) {
+        for (int i = 0; i < lkm; ++i) {
+            _hissit.emplace_back(alin, ylin);
         }
     }
 
-    //or
-    //Hissi* _hissit;
-    //Talo(int lkm) {
-    //    _hissit = new Hissi[lkm];
-    //}
-    //~Talo() {
-    //    delete[] _hissit;
-    //}
+    void aja_hissiä(int hissiNumero, int kerros) {
+        if (hissiNumero >= 1 && hissiNumero <= _lkm) {
+            _hissit[hissiNumero - 1].siirry_kerrokseen(kerros);
+            std::cout << std::endl;
+        }
+        else {
+            std::cout << "Virhe: Hissiä ei ole olemassa!" << std::endl << std::endl;
+        }
+    }
 };
 
 int main() {
-    Hissi h;
-    h.luo_hissi(1, 5);
+    Talo t1(1, 5, 4);
+    Talo t2(0, 20, 10);
 
-    h.siirry_kerrokseen(4);
-    h.siirry_kerrokseen(1);
-    h.siirry_kerrokseen(6);
-    h.siirry_kerrokseen(5);
-    h.siirry_kerrokseen(0);
-    h.siirry_kerrokseen(1);
-    h.siirry_kerrokseen(1);
+    t1.aja_hissiä(2, 4);
+    t1.aja_hissiä(4, 4);
 
-    Talo t;
+    t2.aja_hissiä(4, 20);
+
+    t1.aja_hissiä(4, 1);
 
     return 0;
 }

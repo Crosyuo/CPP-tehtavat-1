@@ -34,8 +34,27 @@ public:
 	}
 };
 
+class Lehti : public Julkaisu
+{
+private:
+	std::string _paatoimittaja;
+
+public:
+	Lehti(const std::string& nimi, const std::string& paatoimittaja) :
+		Julkaisu(nimi), _paatoimittaja(paatoimittaja)
+	{}
+
+	virtual void tulosta_tiedot() const
+	{
+		Julkaisu::tulosta_tiedot();
+		std::cout << "Paatoimittaja: " << _paatoimittaja << std::endl;
+	}
+};
+
 int main() {
-	Julkaisu* kirja = new Kirja("C++ perusteet", "Simo Silander", 150);
+	Julkaisu* kirja = new Kirja("Hytti n:o 6", "Rosa Liksom", 200);
+	Julkaisu* lehti = new Lehti("Aku Ankka", "Aki Hyppä");
 
 	kirja->tulosta_tiedot();
+	lehti->tulosta_tiedot();
 }
